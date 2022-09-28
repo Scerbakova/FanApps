@@ -4,6 +4,8 @@ import OtherNews from "./components/News/News";
 import Social from "./components/Social/Social";
 import MainNews from "./components/MainNews/MainNews";
 import { Container, NewsContainer, SocialContainer } from "./HomeStyles";
+import { Linking } from "react-native";
+import { SocialLinks } from "../../../static/socialLinks";
 
 const news = [
   {
@@ -15,27 +17,21 @@ const news = [
     title: 'Aizvadīts Pirmais "ādas Bumbas" Sabraukums',
   },
 ];
-const social = [
-  require("../../../static/images/twitter.png"),
-  require("../../../static/images/facebook.png"),
-  require("../../../static/images/instagram.png"),
-  require("../../../static/images/youtube.png"),
-];
 
 const Home = () => (
   <Container>
-    <MainNews />
-    <Important />
-    <NewsContainer>
-      {news.map(({ title, image }, i) => (
-        <OtherNews key={i} title={title} image={image} />
-      ))}
-    </NewsContainer>
-    <SocialContainer>
-      {social.map((img, i) => (
-        <Social key={i} img={img} />
-      ))}
-    </SocialContainer>
+      <MainNews />
+      <Important />
+      <NewsContainer>
+        {news.map(({ title, image }, i) => (
+          <OtherNews key={i} title={title} image={image} />
+        ))}
+      </NewsContainer>
+      <SocialContainer>
+        {SocialLinks.map((img, i) => (
+          <Social key={i} img={img.image} onPress={() => {Linking.openURL(img.link)}} />
+        ))}
+      </SocialContainer>
   </Container>
 );
 

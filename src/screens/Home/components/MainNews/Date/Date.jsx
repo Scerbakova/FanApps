@@ -5,8 +5,6 @@ import { NewsDate, DateBackground } from "./DateStyles";
 const DateToday = () => {
   const [date, setDate] = useState("JUL 14TH, 2020");
 
-  const MonthsOfYear = Months;
-
   useEffect(() => {
     todayF();
   });
@@ -29,7 +27,7 @@ const DateToday = () => {
 
   const todayF = () => {
     let today = new Date();
-    const dateMonth = MonthsOfYear[today.getMonth()];
+    const dateMonth = Months[today.getMonth()];
     const dateDay = day + which();
     const dateYear = today.getFullYear();
 

@@ -2,7 +2,8 @@ import styled from "styled-components/native";
 
 export const Container = styled.View`
   width: 47%;
-  margin-bottom: 20px
+  max-height: 100%;
+  margin-bottom: -200px;
 `;
 
 export const NewsImage = styled.Image`
@@ -16,6 +17,7 @@ export const News = styled.View`
   border-bottom-left-radius: 12px;
   border-bottom-right-radius: 12px;
   justify-content: center;
+  min-height: 45%;
 `;
 
 export const Title = styled.Text`
